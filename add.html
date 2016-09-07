@@ -1,0 +1,45 @@
+<html>
+<head>Employee Detail Add Page
+<link rel="stylesheet" type="text/css" href="home.css"></head>
+<body>
+<form type=get action="json.html" >
+<center>
+<table id="addtable">
+<tr><th colspan="2">Employee Detail</th></tr>
+<tr><td>Employee Id</td><td><input type="text" name="empid" id="empid"></input></td></tr>
+<tr><td>Employee Name</td><td><input type="text" name="empname" id="empname"></input></td></tr>
+<tr><td>Mail Id</td><td><input type="text" name="mailid" id="mailid"></input></td></tr>
+<tr><td>Phone No</td><td> <input type="text" name="phoneno" id="phoneno"></input></td></tr>
+<tr><td>Designation</td><td><input type="text" name="position" id="position"></input></td></tr>
+<tr><td>Date of birth</td><td><input type="date" name="dob" id="dob"></input></td></tr>
+<tr><td>Joining Date</td><td><input type="date" name="jdate" id="jdate"></input></td></tr> 
+
+<tr align="center"><center><td row colspan="2"><input type=submit onClick="funlocal()" value="Save"></button>     <input type="button" value="Clear">           </button><input type="button" value="View" onClick="funviewpage()"></button></td><center></tr>
+</table>
+<center>
+</form>
+
+<script>
+	function funviewpage()
+	{
+	window.location="home.html";
+	}
+	function funlocal()
+	{
+	var empid1 = document.getElementById('empid').value
+	var empname = document.getElementById('empname').value
+	var mailid = document.getElementById('mailid').value
+	var position = document.getElementById('position').value
+	var dob = document.getElementById('dob').value
+	var jdate = document.getElementById('jdate').value
+	var temp=[{"empid":empid1},{"empname":empname},{"mailid":mailid},{"position":position},{"dob":dob},{"jdate":jdate}];
+	emparr=[];
+	var i=localStorage.length;
+	localStorage.setItem(i,JSON.stringify(temp));
+	for (i = 0; i < localStorage.length; i++) {
+	 console.log(localStorage.key(i[empid]))
+	}
+	}
+</script>
+</body>
+<html>

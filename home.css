@@ -1,0 +1,18 @@
+body{
+background-color:yellow;
+}
+#bodydiv{
+
+}
+#emptable{			
+margin-top:150px;		
+	 border: 1px solid black;	
+}
+#addtable
+{
+	margin-top:100px;		
+	 border: 1px solid black;	
+}
+td{	
+	 border: 1px solid yellow;	
+}

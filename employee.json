@@ -1,0 +1,10 @@
+
+employee:
+	[{empid:"E6462",empname:"Ramesh",email:"ramesh@gmail.com",phoneno:"8144272958",position:"Trainee software Engineer",dob:"20.05.1993",Joindate:"21.3.2016"},
+{empid:"E6463",empname:"Ramesh",email:"ramesh@gmail.com",phoneno:"8144272958",position:"Trainee software Engineer",dob:"20.05.1993",Joindate:"21.3.2016"},
+{empid:"E6464",empname:"Ramesh",email:"ramesh@gmail.com",phoneno:"8144272958",position:"Trainee software Engineer",dob:"20.05.1993",Joindate:"21.3.2016"},
+{empid:"E6465",empname:"Ramesh",email:"ramesh@gmail.com",phoneno:"8144272958",position:"Trainee software Engineer",dob:"20.05.1993",Joindate:"21.3.2016"},
+{empid:"E6466",empname:"Ramesh",email:"ramesh@gmail.com",phoneno:"8144272958",position:"Trainee software Engineer",dob:"20.05.1993",Joindate:"21.3.2016"},
+	]
+	
+

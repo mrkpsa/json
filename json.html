@@ -1,0 +1,163 @@
+<html>
+<center><head><b>Employee Detail Page</b><br></center>
+<link rel="stylesheet" type="text/css" href="home.css">
+<!--<script src="home.js"></script>-->
+<script src="employee.js"></script>
+</head>
+<body>
+<div id="bodydiv"></div>
+
+
+<center>
+
+	<table id="emptable">
+	<th colspan="9">Employee Detail</th>
+	<tr>
+	<th></th>
+	<th>Employee ID</th>
+	<th>Name</th>
+	<th>Mail ID</th>
+	<th>Phone No</th>
+	<th>Designation</th>
+	<th>DOB</th>
+	<th>Joining Date</th>
+	</tr>
+	</table>
+	<table id="buttontable"></table>
+	<div id="buttondiv"></div>
+	</center>
+	<script>
+	var c;
+	buttontable=document.getElementById("buttontable");
+	var brow=buttontable.insertRow(0);
+	var c1=brow.insertCell(0);
+	var c2=brow.insertCell(1);
+	var c3=brow.insertCell(2);
+	var c4=brow.insertCell(3);
+	var c5=brow.insertc
+	c1.innerHTML="<button value=Add onClick=funaddpage()>Add</button>"
+	c2.innerHTML="<button value=Delete onClick=funselectall()>Select All</button>"
+	c3.innerHTML="<button value=Delete onClick=fundeletechk()>Delete</button>"
+	c4.innerHTML="<button value=Delete onClick=funrefresh()>Refresh</button>"
+		
+			
+	function getParams(){
+	var idx = document.URL.indexOf('?');
+	var params = new Array();
+	if (idx != -1) {
+	var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+	for (var i=0; i<pairs.length; i++){
+	nameVal = pairs[i].split('=');
+	params[nameVal[0]] = nameVal[1];
+	}
+	}
+	return params;
+	}
+	 
+	 params=getParams();
+	 empid=unescape(params["empid"]);
+	 empname=unescape(params["empname"]);
+	 mailid=unescape(params["mailid"]);
+	 phoneno=unescape(params["phoneno"]);
+	 dob=unescape(params["dob"]);
+	 jdate=unescape(params["jdate"]);
+	 position=unescape(params["position"]);
+	var empid;
+	for (i = 0; i < localStorage.length; i++) {
+	console.log(localStorage.key(i));
+	}	
+	 function empfunc(arr)
+	{
+	var table1 = document.getElementById("emptable");
+	for(var j=0;j<arr.length;j++)	
+	{
+		var row = table1.insertRow(j+2);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		var cell6 = row.insertCell(5);
+		var cell7 = row.insertCell(6);
+		var cell8 = row.insertCell(7);
+		var cell9 = row.insertCell(8);
+		cell1.innerHTML = "<input type=checkbox name=check />"
+		cell2.innerHTML = arr[j].empid;
+		cell3.innerHTML = arr[j].empname;
+		cell4.innerHTML = arr[j].email;
+		cell5.innerHTML = arr[j].phoneno;
+		cell6.innerHTML = arr[j].position;
+		cell7.innerHTML = arr[j].dob;
+		cell8.innerHTML = arr[j].joindate;
+		cell9.innerHTML ="<button value=Delete onClick=fundelete(this)>Delete</button>"
+		var x = document.URL.indexOf('?');
+		if(j==arr.length-1)
+		{
+			var row=table1.insertRow(j+3);
+			var c0=row.insertCell(0);
+			var c1=row.insertCell(1);
+			var c2=row.insertCell(2);
+			var c3=row.insertCell(3);
+			var c4=row.insertCell(4);
+			var c5=row.insertCell(5);
+			var c6=row.insertCell(6);
+			var c7=row.insertCell(7);
+			var c8=row.insertCell(8);
+			c0.innerHTML = "<input type=checkbox name=check />"
+			c1.innerHTML=empid;
+			c2.innerHTML=empname
+			c3.innerHTML=mailid;
+			c4.innerHTML=phoneno;
+			c5.innerHTML=position;
+			c6.innerHTML=dob;
+			c7.innerHTML=jdate;
+			c8.innerHTML ="<button value=Delete onClick=fundelete(this)>Delete</button>"
+		}
+	}
+	}
+
+	function fundelete(r)
+	{
+	var i=r.parentNode.parentNode.rowIndex;
+	document.getElementById("emptable").deleteRow(i);
+	}
+	//refresh the page
+	function funrefresh()
+	{
+	location.reload();
+	}
+	var c=document.getElementsByName("check");
+	//delete based on check box
+	function fundeletechk()
+	{
+	var con=confirm("Are you sure want to delete..!");
+	if(con==true)
+	{
+	for (x=c.length-1; x>=0; x--)
+	{
+	if (c[x].checked == true)
+	{document.getElementById("emptable").deleteRow(x+2)}
+	}
+	}
+	else
+	{
+	}
+	}
+	//chekcbox selection
+	function funselectall()
+	{
+	for (y=0;y<c.length;y++)
+	{
+	c[y].checked=true;
+	}
+	}
+	//navigate add.html page
+	function funaddpage()
+	{
+	window.location="add.html"
+	}
+</script>
+
+</body>
+<script src="employee.js"></script>
+</html>
